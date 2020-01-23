@@ -1,29 +1,28 @@
 package scitech;
-
+import java.util.ArrayList;
 import java.util.Scanner;
-
-public class ProstheticStatisticsEntry{
+/**
+ *
+ * @author tiff2
+ */
+public class ProstheticStatisticsEntry {
     
-    public static double circumference;
+    Scanner stat = new Scanner(System.in);
+    ArrayList<Double> CircumferenceData = new ArrayList();
     
-    
-    public static void main(String[] args) {
-
-
+    ProstheticStatisticsEntry(){
+        
     }
     
-    public static void Measurements(){
+    public void dataCircumferenceEntry(){
         
-        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the circumference: ");
+        double circumference = stat.nextDouble();
         
-        System.out.println("Enter the measured CIRCUMFERENCE: ");
-        circumference = scanner.nextDouble();
+        CircumferenceData.add(circumference);
         
-
+        for(double datapoints : CircumferenceData){
+            System.out.println("Circumference: " + datapoints);
+        }
     }
-    
-    public static double Circumference() {
-        return circumference;
-    }
-
 }
