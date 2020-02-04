@@ -1,4 +1,5 @@
 package scitech;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 /**
@@ -25,4 +26,5 @@ public class ProstheticStatisticsEntry {
             System.out.println("Circumference: " + datapoints);
         }
     }
+    
 }
