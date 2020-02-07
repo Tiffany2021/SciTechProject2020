@@ -9,6 +9,8 @@ public class ProjectMainClass{
         
         patientStatistics.buildArrayList();
         
+        System.out.println(patientStatistics.buildArrayList());
+        
         
     }
 

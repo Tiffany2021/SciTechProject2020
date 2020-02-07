@@ -10,4 +10,5 @@ public interface PatientDataSource {
     public int getAge();
     public double getHeight();
     public double getWeight();
+    public String searchPatient();
 }

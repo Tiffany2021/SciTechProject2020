@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class PatientStatistics {
     
     private PatientDataSource patientDatasource;
-    ArrayList <String> PatientNames = new ArrayList <>();
+    ArrayList <String> PatientName = new ArrayList <>();
     ArrayList <Integer> PatientAge = new ArrayList <> ();
     ArrayList <Double> PatientHeight = new ArrayList <> ();
     ArrayList <Double> PatientWeight = new ArrayList <> ();
@@ -19,10 +19,10 @@ public class PatientStatistics {
         this.patientDatasource = patientDatasource;
     }
     
-    public void buildArrayList (){
+    public String buildArrayList (){
         String endstatement = null;
         do{
-            PatientNames.add(patientDatasource.getFirstName() + " " + patientDatasource.getLastName());
+            PatientName.add(patientDatasource.getFirstName() + " " + patientDatasource.getLastName());
             PatientAge.add(patientDatasource.getAge());
             PatientHeight.add(patientDatasource.getHeight());
             PatientWeight.add(patientDatasource.getWeight());
@@ -30,17 +30,38 @@ public class PatientStatistics {
             endstatement = affirmative.next();
             System.out.println();
         }while(endstatement.equals("Yes")|| endstatement.equals("yes"));
-       
-        for(int i = 0; i < PatientNames.size(); i++){
-            System.out.println("Patient's Name: " + PatientNames.get(i));
-            System.out.println("Patient's Age: " + PatientAge.get(i));
-            System.out.println("Patient's Height: " + PatientHeight.get(i));
-            System.out.println("Patient's Weight: " + PatientWeight.get(i));
-            System.out.println();
+        
+        String nameNeeded = patientDatasource.searchPatient();
+        
+        for(int i = 0; i < PatientName.size(); i++){
+            if((PatientName.get(i)).equals(nameNeeded)){
+                return "Name: " + PatientName.get(i) + "\n" +
+                        "Age: " + PatientAge.get(i) + "\n" +
+                        "Height: " + PatientHeight.get(i) + "\n" +
+                        "Weight: " + PatientWeight.get(i) + "\n";
+            }
         }
-
+        
+        return "That patient does not have a entry in the database.";
+        
+        
+       
     }
     
+    public ArrayList getListofNames(){
+        return PatientName;
+    }
     
+    public ArrayList getListofAges(){
+        return PatientAge;
+    }
+    
+    public ArrayList getListofHeights(){
+        return PatientHeight;
+    }
+    
+    public ArrayList getListofWeights(){
+        return PatientWeight;
+    }
 
 }
