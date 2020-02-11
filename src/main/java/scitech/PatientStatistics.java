@@ -19,8 +19,8 @@ public class PatientStatistics {
         this.patientDatasource = patientDatasource;
     }
     
-    public String buildArrayList (){
-        String endstatement = null;
+    public void buildArrayList (){
+        String endstatement;
         do{
             PatientName.add(patientDatasource.getFirstName() + " " + patientDatasource.getLastName());
             PatientAge.add(patientDatasource.getAge());
@@ -30,22 +30,23 @@ public class PatientStatistics {
             endstatement = affirmative.next();
             System.out.println();
         }while(endstatement.equals("Yes")|| endstatement.equals("yes"));
+    }
+    
+    public String SearchPatient(){
         
         String nameNeeded = patientDatasource.searchPatient();
         
         for(int i = 0; i < PatientName.size(); i++){
             if((PatientName.get(i)).equals(nameNeeded)){
-                return "Name: " + PatientName.get(i) + "\n" +
+                 return "Name: " + PatientName.get(i) + "\n" +
                         "Age: " + PatientAge.get(i) + "\n" +
                         "Height: " + PatientHeight.get(i) + "\n" +
                         "Weight: " + PatientWeight.get(i) + "\n";
             }
         }
         
-        return "That patient does not have a entry in the database.";
-        
-        
-       
+        return "This patient does not exist in the directory.";
+
     }
     
     public ArrayList getListofNames(){

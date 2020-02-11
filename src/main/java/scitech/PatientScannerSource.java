@@ -12,8 +12,8 @@ public class PatientScannerSource implements PatientDataSource{
     public static String AGE_PROMPT = "Enter the patient's age: ";
     public static String HEIGHT_PROMPT = "Enter the patient's height in centimeters: ";
     public static String WEIGHT_PROMPT = "Enter the patient's weight in kilograms: ";
-    public static String SEARCHFirstNAME_PROMPT = "Enter the first name of the patient needed: ";
-    public static String SEARCHLastNAME_PROMPT = "Enter the last name of the patient needed: ";
+    public static String SEARCH_FirstNAME_PROMPT = "Enter the first name of the patient needed: ";
+    public static String SEARCH_LastNAME_PROMPT = "Enter the last name of the patient needed: ";
     
     Scanner PatientInfo = new Scanner(System.in);
 
@@ -49,11 +49,11 @@ public class PatientScannerSource implements PatientDataSource{
     
     @Override
     public String searchPatient(){
-        System.out.println(SEARCHFirstNAME_PROMPT);
-        String Fname = PatientInfo.next();
-        System.out.println(SEARCHLastNAME_PROMPT);
-        String Lname = PatientInfo.next();
-        return Fname + " " + Lname;
+        System.out.println(SEARCH_FirstNAME_PROMPT);
+        String FirstName = PatientInfo.next();
+        System.out.println(SEARCH_LastNAME_PROMPT);
+        String LastName = PatientInfo.next();
+        return FirstName + " " + LastName;
     }
     
 }

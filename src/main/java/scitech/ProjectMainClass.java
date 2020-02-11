@@ -8,8 +8,8 @@ public class ProjectMainClass{
         PatientStatistics patientStatistics = new PatientStatistics(patientDatasource);
         
         patientStatistics.buildArrayList();
-        
-        System.out.println(patientStatistics.buildArrayList());
+
+        System.out.println(patientStatistics.SearchPatient());
         
         
     }
