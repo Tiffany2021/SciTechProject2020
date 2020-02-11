@@ -7,9 +7,16 @@ public class ProjectMainClass{
         PatientDataSource patientDatasource = new PatientScannerSource();
         PatientStatistics patientStatistics = new PatientStatistics(patientDatasource);
         
-        patientStatistics.buildArrayList();
+        
+        patientStatistics.buildPatientArrayList();
+        
+        ProstheticDataSource prostheticDatasource = new ProstheticScannerSource();
+        ProstheticStatistics prostheticStatistics = new ProstheticStatistics(prostheticDatasource);
+        
+        prostheticStatistics.buildProstheticArrayList();
 
         System.out.println(patientStatistics.SearchPatient());
+        
         
         
     }

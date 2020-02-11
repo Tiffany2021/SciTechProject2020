@@ -25,7 +25,7 @@ public class ProjectMainTestClass {
         
         assertEquals("Did not receive expected statement: " + result, "This patient does not exist in the directory.", result);
     }
-      
+    
     private class TestPatientDataSource implements PatientDataSource{
 
         private String firstname = "";
@@ -88,7 +88,6 @@ public class ProjectMainTestClass {
         public String searchPatient(){
             return name;
         }
-
     }
     
 }
