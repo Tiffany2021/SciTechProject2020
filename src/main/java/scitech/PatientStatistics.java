@@ -8,14 +8,18 @@ import java.util.*;
 public class PatientStatistics {
     
     private PatientDataSource patientDatasource;
-    ArrayList <String> PatientName = new ArrayList <>();
-    ArrayList <Integer> PatientAge = new ArrayList <> ();
-    ArrayList <Double> PatientHeight = new ArrayList <> ();
-    ArrayList <Double> PatientWeight = new ArrayList <> ();
-    
-    
-    public PatientStatistics(PatientDataSource patientDatasource){
+    // COMMENT: This class uses ProstheticStatistics, so need to inject into the class (don't create in the class)
+    private ProstheticStatistics prostheticStatistics;
+    // COMMENT: Always make your class data private if possible
+    private ArrayList <String> PatientName = new ArrayList <>();
+    private ArrayList <Integer> PatientAge = new ArrayList <> ();
+    private ArrayList <Double> PatientHeight = new ArrayList <> ();
+    private ArrayList <Double> PatientWeight = new ArrayList <> ();
+
+    // COMMENT: Updated constructor to inject ProstheticStatistics
+    public PatientStatistics(PatientDataSource patientDatasource, ProstheticStatistics prostheticStatistics){
         this.patientDatasource = patientDatasource;
+        this.prostheticStatistics = prostheticStatistics;
     }
     
     public void buildPatientArrayList (){
@@ -28,9 +32,11 @@ public class PatientStatistics {
     }
     
     public String SearchPatient(){
-        ProstheticDataSource prostheticDatasource = new ProstheticScannerSource();
-        ProstheticStatistics prostheticStatistics = new ProstheticStatistics(prostheticDatasource);
-        
+        // COMMENT: This is the source of your bug. You were creating new instances of these classes, so not
+        //          using the ones create in ProjectMainClass that had data in them.
+//        ProstheticDataSource prostheticDatasource = new ProstheticScannerSource();
+//        ProstheticStatistics prostheticStatistics = new ProstheticStatistics(prostheticDatasource);
+
         String nameNeeded = patientDatasource.searchPatient();
         
         for(int i = 0; i < PatientName.size(); i++){
