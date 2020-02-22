@@ -8,11 +8,12 @@ import java.util.*;
 public class ProstheticStatistics {
     
     private ProstheticDataSource prostheticDataSource;
-    ArrayList <Double> Circumference = new ArrayList <>();
-    ArrayList <Double> Radius = new ArrayList <>();
-    ArrayList <String> Circumstances = new ArrayList <>();
-    ArrayList <String> SpecialMaterials = new ArrayList <>();
-    ArrayList <Boolean> HaveStump = new ArrayList <>();
+    
+    private List <Double> Circumference = new ArrayList <>();
+    private List <Double> Radius = new ArrayList <>();
+    private List <String> Circumstances = new ArrayList <>();
+    private List <String> SpecialMaterials = new ArrayList <>();
+    private List <Boolean> HaveStump = new ArrayList <>();
     
     public ProstheticStatistics(ProstheticDataSource prostheticDataSource){
         this.prostheticDataSource = prostheticDataSource;
@@ -30,12 +31,18 @@ public class ProstheticStatistics {
     }
     
     public String SearchProsthetic(int indexOfProsthetic){
+        Double circumference = Circumference.get(indexOfProsthetic);
+        Double radius = Radius.get(indexOfProsthetic);
+        String circumstances = Circumstances.get(indexOfProsthetic);
+        String specialMaterials = SpecialMaterials.get(indexOfProsthetic);
+        Boolean haveStump = HaveStump.get(indexOfProsthetic);
         
-        return "Circumference: " + Circumference.get(indexOfProsthetic) + "cm" + "/n" +
-                "Radius: " + Radius.get(indexOfProsthetic) + "cm" + "/n" +
-                "Circumstances: " + Circumstances.get(indexOfProsthetic) + "/n" +
-                "Special Material needed: " + SpecialMaterials.get(indexOfProsthetic) + "/n" +
-                "Have Stump: " + HaveStump.get(indexOfProsthetic);
+        return String.format("Circumference: %f cm/n" +
+                "Radius: %f cm/n" +
+                "Circumstances: %s/n" +
+                "Special Material needed: %s/n" +
+                "Have Stump: %s" +
+                circumference, radius, circumstances, specialMaterials, haveStump.toString());
         
     }
     

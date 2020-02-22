@@ -8,14 +8,17 @@ import java.util.*;
 public class PatientStatistics {
     
     private PatientDataSource patientDatasource;
-    ArrayList <String> PatientName = new ArrayList <>();
-    ArrayList <Integer> PatientAge = new ArrayList <> ();
-    ArrayList <Double> PatientHeight = new ArrayList <> ();
-    ArrayList <Double> PatientWeight = new ArrayList <> ();
+    private ProstheticStatistics prostheticStatistics;
+    
+    private ArrayList <String> PatientName = new ArrayList <>();
+    private ArrayList <Integer> PatientAge = new ArrayList <> ();
+    private ArrayList <Double> PatientHeight = new ArrayList <> ();
+    private ArrayList <Double> PatientWeight = new ArrayList <> ();
     
     
-    public PatientStatistics(PatientDataSource patientDatasource){
+    public PatientStatistics(PatientDataSource patientDatasource, ProstheticStatistics prostheticStatistics){
         this.patientDatasource = patientDatasource;
+        this.prostheticStatistics = prostheticStatistics;
     }
     
     public void buildPatientArrayList (){
@@ -28,8 +31,6 @@ public class PatientStatistics {
     }
     
     public String SearchPatient(){
-        ProstheticDataSource prostheticDatasource = new ProstheticScannerSource();
-        ProstheticStatistics prostheticStatistics = new ProstheticStatistics(prostheticDatasource);
         
         String nameNeeded = patientDatasource.searchPatient();
         
