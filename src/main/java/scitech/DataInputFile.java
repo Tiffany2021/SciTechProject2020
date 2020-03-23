@@ -1,8 +1,8 @@
 package scitech;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
 
 /**
  *
@@ -11,23 +11,31 @@ import java.io.FileWriter;
 public class DataInputFile {
 
     private final String firstName;
-
-    DataInputFile(String FirstName){
-        this.firstName = FirstName;
+    private final String lastName;
+    private final int age;
+    private double height;
+    private double weight;
+    private PatientDataSource patientDataSource;
+    private File file;
+    private Formatter x;
+    
+    DataInputFile(PatientDataSource patientDataSource){
+        this.firstName = patientDataSource.getFirstName();
+        this.lastName = patientDataSource.getLastName();
+        this.age = patientDataSource.getAge();
+        this.height = patientDataSource.getHeight();
+        this.weight = patientDataSource.getWeight();
         
     }
     
-    private void saveDataInput(){
+    public void saveDataInput(){
 
         try{
-            File newFile = new File("C:\\Users\\bluel\\projects\\SciTechProject2020\\DataSheet.txt");
-            BufferedWriter out = new BufferedWriter(new FileWriter(newFile));     
-            out.write("Name: " + firstName);
-            
-        
+            x = new Formatter("DataSheet.txt");
         }catch(Exception e){
             e.printStackTrace();
         }
-        
+        x.format("Name: %s %s", firstName, lastName);
+        x.close();
     }
 }

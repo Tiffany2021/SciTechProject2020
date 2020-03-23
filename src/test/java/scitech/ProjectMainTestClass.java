@@ -26,38 +26,38 @@ public class ProjectMainTestClass {
         patientStatistics = new PatientStatistics(patientDatasource, prostheticStatistics);
     }
     
-    @Test
-    public void TestSearchPatientFails() throws Exception{
-        String result = patientStatistics.SearchPatient();
-        
-        assertEquals("Did not receive expected statement: " + result, "This patient does not exist in the directory.", result);
-    }
-    @Test
-    public void TestSearchPatientSucceeds() throws Exception{
-
-        patientDatasource.setFirstName("King");
-        patientDatasource.setLastName("Midas");
-        patientDatasource.setAge(57);
-        patientDatasource.setHeight(170);
-        patientDatasource.setWeight(122);
-        
-        prostheticDatasource.setCircumference(21.0);
-        prostheticDatasource.setCircumstances("Amputation");
-        prostheticDatasource.setSpecialMaterials("Gold");
-        prostheticDatasource.setHaveStump(true);
-        
-        patientStatistics.buildPatientArrayList();
-        
-        prostheticStatistics.buildProstheticArrayList();
-        
-        String result = patientStatistics.SearchPatient();
-        
-        assertTrue("Invalid name: " + result, result.contains("Name: King Midas"));
-        assertTrue("Invalid age: " + result, result.contains("Age: 57"));
-        assertTrue("Invalid height: " + result, result.contains("Height: 170.0 cm"));
-        assertTrue("Invalid weight: " + result, result.contains("Weight: 122.0 kg"));
-        
-    }
+//    @Test
+//    public void TestSearchPatientFails() throws Exception{
+//        String result = patientStatistics.SearchPatient();
+//        
+//        assertEquals("Did not receive expected statement: " + result, "This patient does not exist in the directory.", result);
+//    }
+//    @Test
+//    public void TestSearchPatientSucceeds() throws Exception{
+//
+//        patientDatasource.setFirstName("King");
+//        patientDatasource.setLastName("Midas");
+//        patientDatasource.setAge(57);
+//        patientDatasource.setHeight(170);
+//        patientDatasource.setWeight(122);
+//        
+//        prostheticDatasource.setCircumference(21.0);
+//        prostheticDatasource.setCircumstances("Amputation");
+//        prostheticDatasource.setSpecialMaterials("Gold");
+//        prostheticDatasource.setHaveStump(true);
+//        
+//        patientStatistics.buildPatientArrayList();
+//        
+//        prostheticStatistics.buildProstheticArrayList();
+//        
+//        String result = patientStatistics.SearchPatient();
+//        
+//        assertTrue("Invalid name: " + result, result.contains("Name: King Midas"));
+//        assertTrue("Invalid age: " + result, result.contains("Age: 57"));
+//        assertTrue("Invalid height: " + result, result.contains("Height: 170.0 cm"));
+//        assertTrue("Invalid weight: " + result, result.contains("Weight: 122.0 kg"));
+//        
+//    }
     
     private class TestProstheticDataSource implements ProstheticDataSource{
         private Double circumference;
@@ -66,7 +66,6 @@ public class ProjectMainTestClass {
         private Boolean haveStump;
         
         public void setCircumference(Double circumference){this.circumference = circumference;}
-        
         
         public void setCircumstances(String circumstances){this.circumstances = circumstances;}
         
@@ -147,13 +146,10 @@ public class ProjectMainTestClass {
             return weight;
         }
         
-        @Override
-        public String searchPatient(){
-            return firstname + " " + lastname;
-        }
+//        @Override
+//        public String searchPatient(){
+//            return firstname + " " + lastname;
+//        }
     }
     
 }
-    
-
-

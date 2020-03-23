@@ -1,5 +1,6 @@
 package scitech;
-import java.util.Scanner;
+import java.text.*;
+import java.util.*;
 /**
  *
  * @author tiff2
@@ -18,7 +19,7 @@ public class PatientScannerSource implements PatientDataSource{
     Scanner PatientInfo = new Scanner(System.in);
 
     @Override
-    public String getFirstName(){
+    public  String getFirstName(){
         System.out.println(FIRSTNAME_PROMPT);
         return PatientInfo.next();
     }
@@ -47,13 +48,13 @@ public class PatientScannerSource implements PatientDataSource{
         return PatientInfo.nextDouble();
     }
     
-    @Override
-    public String searchPatient(){
-        System.out.println(SEARCH_FirstNAME_PROMPT);
-        String FirstName = PatientInfo.next();
-        System.out.println(SEARCH_LastNAME_PROMPT);
-        String LastName = PatientInfo.next();
-        return FirstName + " " + LastName;
-    }
-    
+//    @Override
+//    public String searchPatient(){
+//        System.out.println(SEARCH_FirstNAME_PROMPT);
+//        String FirstName = PatientInfo.next();
+//        System.out.println(SEARCH_LastNAME_PROMPT);
+//        String LastName = PatientInfo.next();
+//        return FirstName + " " + LastName;
+//    }
+//    
 }
