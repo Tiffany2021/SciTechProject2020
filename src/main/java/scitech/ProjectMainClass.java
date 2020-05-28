@@ -8,13 +8,15 @@ public class ProjectMainClass{
         ProstheticStatistics prostheticStatistics = new ProstheticStatistics(prostheticDatasource);
         
         PatientDataSource patientDatasource = new PatientScannerSource();
-        PatientStatistics patientStatistics = new PatientStatistics(patientDatasource, prostheticStatistics);
+        DataInputFile dataInputfile = new DataInputFile(patientDatasource);
+        dataInputfile.saveDataInput();
         
-        patientStatistics.buildPatientArrayList();
-        prostheticStatistics.buildProstheticArrayList();
+//        PatientStatistics patientStatistics = new PatientStatistics(patientDatasource, prostheticStatistics);
+        
+//        patientStatistics.buildPatientArrayList();
+//        prostheticStatistics.buildProstheticArrayList();
 
-        System.out.println(patientStatistics.SearchPatient());
-        
+//        System.out.println(patientStatistics.SearchPatient());
     }
 
 }
