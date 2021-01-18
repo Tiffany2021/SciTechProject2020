@@ -1,15 +1,22 @@
 package scitech;
 
-import java.util.*;
-import java.lang.*;
-import java.io.*;
-
+import org.apache.commons.io.FileUtils;
+import java.io.File;
+import java.nio.charset.Charset;
 /**
  *
  * @author tiff2
  */
 public class DataInputFile {
 
+    public static void main(String args[]){
+        
+        String firstName = "Unknown";
+        String lastName = "Unknown";
+        String age = "N/A";
+        
+        
+    }
     private final String firstName;
     private final String lastName;
     private final int age;

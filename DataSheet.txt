@@ -1,4 +1,9 @@
 Name: Tiffany Li
-Age: 16
+Age: 17
 Height: 165 cm
 Weight: 54 kg
+Circumference: 2.63 cm
+Radius: 0.42 cm
+Circumstances: Swimming
+Special Material: Rubber, water resistant
+Have Stump: True
