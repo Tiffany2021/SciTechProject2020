@@ -3,8 +3,8 @@ apply plugin: 'jacoco'
 apply plugin: 'application'
 
 
-//mainClassName = 'scitech.ProjectMainClass'
-mainClassName = 'scitech.WriteToFile'
+mainClassName = 'scitech.ProjectMainClass'
+//mainClassName = 'scitech.WriteToFile'
 
 repositories {
     jcenter()

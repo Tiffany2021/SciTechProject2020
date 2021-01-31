@@ -3,6 +3,8 @@ package scitech;
 import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.nio.charset.Charset;
+import java.util.Formatter;
+
 /**
  *
  * @author tiff2
@@ -24,7 +26,7 @@ public class DataInputFile {
     private double weight;
     private PatientDataSource patientDataSource;
     private File file;
-    private Formatter x;
+//    private Formatter x;
     
     DataInputFile(PatientDataSource patientDataSource){
         this.firstName = patientDataSource.getFirstName();
@@ -37,12 +39,12 @@ public class DataInputFile {
     
     public void saveDataInput(){
 
-        try{
-            x = new Formatter("DataSheet.txt");
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        x.format("Name: %s %s", firstName, lastName);
-        x.close();
+    //    try{
+//            x = new Formatter("DataSheet.txt");
+//        }catch(Exception e){
+//            e.printStackTrace();
+//        }
+//        x.format("Name: %s %s", firstName, lastName);
+//        x.close();
     }
 }
